@@ -138,15 +138,3 @@ exports.scrapeMensa =
         const savedDishes = await saveDishes(dishes);
         return savedDishes;
     });
-
-
-const scrapeMensa = async () => {
-    const html = await getHtml(BASE_URL, URL_PATHS['Mensa 1']);
-    const rawDays = html('div#days table').toArray();
-    const dishes = await getDishes(rawDays);
-
-    const savedDishes = await saveDishes(dishes);
-    return saveDishes;
-};
-
-scrapeMensa();

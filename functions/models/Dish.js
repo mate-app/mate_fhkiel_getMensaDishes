@@ -16,18 +16,6 @@ class Dish {
         this.mensa = mensa,
         this.rating = rating
     }
-
-    isVegatarian() {
-        return this.tags.includes('Vegetarian') ? true : false;
-    }
-
-    isVegan() {
-        return this.tags.includes('Vegan') ? true : false;
-    }
-
-    isHalal() {
-        return this.tags.includes('Schwein') || this.tags.includes('Alkohol') ? false : true;
-    }
 }
 
 module.exports = Dish;
