@@ -9,7 +9,7 @@
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log",
     "test": "mocha --reporter spec",
-    "test-with-coverage": "nyc --reporter=lcov mocha"
+    "test-with-coverage": "nyc --reporter=lcovonly mocha"
   },
   "engines": {
     "node": "12"

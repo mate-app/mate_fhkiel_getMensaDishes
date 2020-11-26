@@ -1,0 +1,30 @@
+name: Run Tests and Coverage Reporting
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: Testing on Ubuntu-Latest with Node 12
+    runs-on: ['ubuntu-latest']
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
+      - name: Install dependencies
+        run: cd functions && npm install
+
+      - name: Run tests with coverage and create lcov.info file
+        run: npm run-script test-with-coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1.0.3
+        with:
+            token: ${{secrets.CODECOV_TOKEN}}
+            file: coverage/lcov.info
