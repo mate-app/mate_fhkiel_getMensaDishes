@@ -21,7 +21,7 @@ jobs:
         run: cd functions && npm install
 
       - name: Run tests with coverage and create lcov.info file
-        run: npm run-script test-with-coverage
+        run: cd functions && npm run-script test-with-coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1.0.3
