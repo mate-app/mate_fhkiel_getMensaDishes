@@ -24,7 +24,7 @@ jobs:
         run: cd functions && mkdir key
       
       - name: Read Secret and write into service account file
-        run: cd functions/key && 'echo "FIREBASE_SERVICEACCOUNT_KEY" > mate-app-dev-firebase-adminsdk-liq4s-2c859c2b27.json'
+        run: 'cd functions/key && echo "FIREBASE_SERVICEACCOUNT_KEY" > mate-app-dev-firebase-adminsdk-liq4s-2c859c2b27.json'
         shell: bash
         env:
           FIREBASE_SERICEACCOUNT_KEY: ${{secrets.FIREBASE_SERVICEACCOUNT_KEY}}
